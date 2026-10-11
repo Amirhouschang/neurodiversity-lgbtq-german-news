@@ -8,7 +8,9 @@ Ausgewertet wurden die Websites tagesschau.de, SPIEGEL, WELT und ZDFheute im Zei
 
 ## Interaktives Dashboard
 
-Das Dashboard ist mit Streamlit gebaut und steht auf Deutsch und Englisch zur Verfügung. Die erste Seite zeigt die Auswertung zu ADHS, Autismus und Neurodiversität, die zweite die Auswertung zu LGBTQ+, die dritte den Vergleich der beiden Gruppen. Quellen und Zeitraum lassen sich auf allen Seiten eingrenzen. Wie das Dashboard gestartet wird, steht im Abschnitt [Ausführen](#ausführen).
+**[Zum Dashboard](https://neurodiversity-lgbtq-german-news.streamlit.app/)**
+
+Das Dashboard ist mit Streamlit gebaut und steht auf Deutsch und Englisch zur Verfügung. Die erste Seite zeigt die Auswertung zu ADHS, Autismus und Neurodiversität, die zweite die Auswertung zu LGBTQ+, die dritte den Vergleich der beiden Gruppen. Quellen und Zeitraum lassen sich auf allen Seiten eingrenzen. Wie es sich auf dem eigenen Rechner starten lässt, steht im Abschnitt [Ausführen](#ausführen).
 
 ## Fragen und Ergebnisse
 
@@ -106,6 +108,7 @@ Dieses Repository enthält ausschließlich Zahlen. Die Überschriften, die Liste
 ```
 ├── neurodiv_websites.py          erfasst und zählt die Beiträge
 ├── dashboard.py                  Streamlit-Dashboard (Deutsch / Englisch)
+├── seiten_pruefen.py             Hilfsskript vom Projektbeginn: prüft den Aufbau der Websites
 ├── .streamlit/config.toml        Farben des Dashboards
 ├── data/raw/
 │   ├── monatszahlen.csv          Zahlen je Quelle und Monat: ADHS, Autismus, Neurodiversität
@@ -114,6 +117,8 @@ Dieses Repository enthält ausschließlich Zahlen. Die Überschriften, die Liste
 ├── README.md
 └── README.de.md
 ```
+
+Mit `seiten_pruefen.py` wurde zu Beginn des Projekts geprüft, wie die Archive und die Suchfunktionen der Websites aufgebaut sind. Geprüft wurden dabei auch ZEIT und Deutschlandfunk, die nicht in die Auswertung eingegangen sind. Für die Auswertung und das Dashboard wird das Skript nicht benötigt.
 
 ## Ausführen
 

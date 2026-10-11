@@ -8,7 +8,9 @@ The analysis covers the websites tagesschau.de, SPIEGEL, WELT and ZDFheute in th
 
 ## Interactive dashboard
 
-The dashboard is built with Streamlit and is available in German and English. The first page shows the analysis of ADHD, autism and neurodiversity, the second the analysis of LGBTQ+, and the third the comparison of the two groups. Sources and period can be narrowed down on all pages. The section [How to run](#how-to-run) explains how to start the dashboard.
+**[Open the dashboard](https://neurodiversity-lgbtq-german-news.streamlit.app/)**
+
+The dashboard is built with Streamlit and is available in German and English. The first page shows the analysis of ADHD, autism and neurodiversity, the second the analysis of LGBTQ+, and the third the comparison of the two groups. Sources and period can be narrowed down on all pages. The section [How to run](#how-to-run) explains how to start it on your own computer.
 
 ## Questions and findings
 
@@ -106,6 +108,7 @@ This repository contains only figures. The headlines, the lists of items and the
 ```
 ├── neurodiv_websites.py          collects and counts the items
 ├── dashboard.py                  Streamlit dashboard (German / English)
+├── seiten_pruefen.py             helper script from the start of the project: checks how the websites are structured
 ├── .streamlit/config.toml        colours of the dashboard
 ├── data/raw/
 │   ├── monatszahlen.csv          figures per source and month: ADHD, autism, neurodiversity
@@ -114,6 +117,8 @@ This repository contains only figures. The headlines, the lists of items and the
 ├── README.md
 └── README.de.md
 ```
+
+At the start of the project, `seiten_pruefen.py` was used to check how the archives and search functions of the websites are structured. ZEIT and Deutschlandfunk were also checked at that stage; they were not included in the analysis. The script is not needed for the analysis or the dashboard.
 
 ## How to run
 
