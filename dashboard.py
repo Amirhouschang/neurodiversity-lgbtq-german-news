@@ -1,6 +1,6 @@
 """
 Dashboard (Deutsch / English): ADHS, Autismus, Neurodiversitaet und LGBTQ+
-in deutschen Nachrichtenseiten.
+auf deutschen Nachrichtenseiten.
 
 Seite 1: ADHS, Autismus, Neurodiversitaet. Seite 2: LGBTQ+.
 Seite 3: Vergleich der beiden Gruppen.
@@ -78,7 +78,7 @@ BELEGE = [
 TEXTE = {
     "de": {
         "seitentitel": "Neurodiversität und LGBTQ+ in den Nachrichten",
-        "titel": "ADHS, Autismus, Neurodiversität und LGBTQ+ in deutschen Nachrichtenseiten",
+        "titel": "ADHS, Autismus, Neurodiversität und LGBTQ+ auf deutschen Nachrichtenseiten",
         "kopf": "Quellen: tagesschau.de, SPIEGEL, WELT, ZDFheute · Datenabruf: {abruf}",
         "zeitraum": "Zeitraum",
         "zeitraum_grund": "Der Untersuchungszeitraum beginnt im November 2024, weil die Website von "
@@ -137,13 +137,14 @@ TEXTE = {
                             "aller Textbeiträge zum Thema im jeweiligen Monat.",
         "verlauf_hinweis": "Das vierte Quartal 2024 umfasst nur die Monate November und Dezember.",
         "d_begriffe": "Verteilung der Begriffe",
-        "begriffe_hinweis": "Gezählt wird das Vorkommen eines Begriffs in Überschrift oder Dachzeile. "
-                            "Da ein Beitrag mehreren Begriffen zugeordnet sein kann, kann die Summe "
-                            "der Fundstellen die Zahl der Beiträge übersteigen.",
+        "begriffe_hinweis": "Gezählt wird je Begriff, in wie vielen Beiträgen er in Überschrift oder "
+                            "Dachzeile steht. Jeder Begriff zählt je Beitrag höchstens einmal. Da ein "
+                            "Beitrag mehrere Begriffe enthalten kann, kann die Summe die Zahl der "
+                            "Beiträge übersteigen.",
         "a_anzahl": "Anzahl Beiträge",
-        "a_fundstellen": "Fundstellen je Begriff",
+        "a_fundstellen": "Beiträge je Begriff",
         "asperger_satz": "„Asperger“ wird dem Autismus-Spektrum zugerechnet und ist unter Autismus "
-                            "erfasst. Der Begriff selbst kommt {n}-mal vor ({wo}).",
+                            "erfasst. Zahl der Beiträge mit dem Begriff selbst: {n} ({wo}).",
         "asperger_null": "„Asperger“ wird dem Autismus-Spektrum zugerechnet und ist unter Autismus "
                             "erfasst. Der Begriff selbst kommt in dieser Auswahl nicht vor.",
         "a_je1000": "Beiträge zum Thema je 1.000",
@@ -301,13 +302,13 @@ TEXTE = {
         "verlauf_hinweis": "The fourth quarter of 2024 covers only the months of November and "
                             "December.",
         "d_begriffe": "Distribution of terms",
-        "begriffe_hinweis": "An occurrence is counted when a term appears in the headline or kicker. "
-                            "As an item may be assigned to several terms, the sum of occurrences may "
-                            "exceed the number of items.",
+        "begriffe_hinweis": "For each term, the number of items is counted in which it appears in the "
+                            "headline or kicker. Each term is counted at most once per item. As an "
+                            "item may contain several terms, the sum may exceed the number of items.",
         "a_anzahl": "Number of items",
-        "a_fundstellen": "Occurrences per term",
+        "a_fundstellen": "Items per term",
         "asperger_satz": "\"Asperger\" is regarded as part of the autism spectrum and is included "
-                            "under autism. Number of occurrences of the term itself: {n} ({wo}).",
+                            "under autism. Number of items containing the term itself: {n} ({wo}).",
         "asperger_null": "\"Asperger\" is regarded as part of the autism spectrum and is included "
                             "under autism. The term itself does not occur in this selection.",
         "a_je1000": "Items on the topic per 1,000",
@@ -518,6 +519,8 @@ TEXTE["de"]["themen"].update({
 })
 # Texte, die nur fuer die Seite LGBTQ+ anders lauten
 TEXTE["de"]["lgbtq"] = {
+    "begriffe_hinweis": TEXTE["de"]["begriffe_hinweis"]
+                        + " In den drei Gruppen sind die Werte der einzelnen Begriffe addiert.",
     "einordnung_hinweis": "Hinweis zur Interpretation: Die Gegenüberstellung dient der "
                           "Einordnung und stellt keinen Sollwert dar; ein fester Zusammenhang "
                           "zwischen Bevölkerungsanteil und Umfang der Berichterstattung wird "
@@ -621,6 +624,8 @@ TEXTE["en"]["themen"].update({
     "trans_inter": "Trans, non-binary, intersex",
 })
 TEXTE["en"]["lgbtq"] = {
+    "begriffe_hinweis": TEXTE["en"]["begriffe_hinweis"]
+                        + " In the three groups, the values of the individual terms are added up.",
     "einordnung_hinweis": "Note on interpretation: the comparison provides context and does "
                           "not represent a target value; no fixed relationship between "
                           "population share and volume of coverage is assumed. The "
@@ -1053,7 +1058,7 @@ def themenseite(feld):
             asperger_satz = T["asperger_satz"].format(n=int(asperger.sum()), wo=wo)
         st.caption(T["nur_text"] + " " + asperger_satz + " " + T["begriffe_hinweis"])
     else:
-        st.caption(T["nur_text"] + " " + T["begriffe_hinweis"])
+        st.caption(T["nur_text"] + " " + ft("begriffe_hinweis"))
 
     # ---------------------------------------------------------- Einordnung
 

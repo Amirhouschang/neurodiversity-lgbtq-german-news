@@ -1,4 +1,4 @@
-# ADHS, Autismus, Neurodiversität und LGBTQ+ in deutschen Nachrichtenseiten, November 2024 bis September 2026
+# ADHS, Autismus, Neurodiversität und LGBTQ+ auf deutschen Nachrichtenseiten, November 2024 bis September 2026
 
 🇬🇧 [English version](README.md)
 
@@ -14,7 +14,7 @@ Das Dashboard ist mit Streamlit gebaut und steht auf Deutsch und Englisch zur Ve
 
 ## Fragen und Ergebnisse
 
-Alle Zahlen beziehen sich auf Textbeiträge, in denen ein Begriff in der Überschrift oder in der Dachzeile vorkommt.
+Sofern nicht anders angegeben, beziehen sich alle Zahlen auf Textbeiträge, in denen ein Begriff in der Überschrift oder in der Dachzeile vorkommt.
 
 ### 1. Wie oft berichten die vier Websites über ADHS, Autismus und Neurodiversität?
 
@@ -26,7 +26,7 @@ Alle Zahlen beziehen sich auf Textbeiträge, in denen ein Begriff in der Übersc
 | ZDFheute | 27.969 | 10 | 0,36 |
 | **Gesamt** | **188.354** | **128** | **0,68** |
 
-In 128 von 188.354 Textbeiträgen steht einer der Begriffe in der Überschrift oder in der Dachzeile. Das entspricht 0,07 Prozent oder durchschnittlich 5,6 Beiträgen im Monat auf allen vier Websites zusammen. Auf ADHS entfallen 69 Beiträge, auf Autismus 58 und auf Neurodiversität 11. Der Begriff „Asperger“ ist unter Autismus erfasst und kommt selbst nur einmal vor. Hinzu kommen 11 Videos, davon eines bei tagesschau.de, vier bei WELT und sechs bei ZDFheute.
+In 128 von 188.354 Textbeiträgen steht einer der Begriffe in der Überschrift oder in der Dachzeile. Das entspricht 0,07 Prozent oder durchschnittlich 5,6 Beiträgen im Monat auf allen vier Websites zusammen. Auf ADHS entfallen 69 Beiträge, auf Autismus 58 und auf Neurodiversität 11. Da ein Beitrag mehrere Begriffe enthalten kann, ist die Summe dieser drei Zahlen größer als die Zahl der Beiträge. Der Begriff „Asperger“ ist unter Autismus erfasst und steht selbst nur in einem Beitrag. Hinzu kommen 11 Videos, davon eines bei tagesschau.de, vier bei WELT und sechs bei ZDFheute.
 
 ### 2. Wie oft berichten die vier Websites über LGBTQ+?
 
@@ -38,7 +38,7 @@ In 128 von 188.354 Textbeiträgen steht einer der Begriffe in der Überschrift o
 | ZDFheute | 27.969 | 47 | 1,68 |
 | **Gesamt** | **188.354** | **494** | **2,62** |
 
-In 494 von 188.354 Textbeiträgen steht einer der Begriffe in der Überschrift oder in der Dachzeile. Das entspricht 0,26 Prozent oder durchschnittlich 21,5 Beiträgen im Monat auf allen vier Websites zusammen. Die Begriffe „queer“ und „LGBTQ+“ kommen 209-mal vor, die Begriffe „schwul“, „lesbisch“, „homosexuell“ und „bisexuell“ 132-mal und die Begriffe „trans“, „nichtbinär“ und „intergeschlechtlich“ 186-mal. Da ein Beitrag mehrere Begriffe enthalten kann, ist die Summe größer als die Zahl der Beiträge. Hinzu kommen 57 Videos, davon eines bei tagesschau.de, 33 bei WELT und 23 bei ZDFheute.
+In 494 von 188.354 Textbeiträgen steht einer der Begriffe in der Überschrift oder in der Dachzeile. Das entspricht 0,26 Prozent oder durchschnittlich 21,5 Beiträgen im Monat auf allen vier Websites zusammen. Die Begriffe „queer“ und „LGBTQ+“ stehen in 209 Fällen in der Überschrift oder in der Dachzeile, die Begriffe „schwul“, „lesbisch“, „homosexuell“ und „bisexuell“ in 132 Fällen und die Begriffe „trans“, „nichtbinär“ und „intergeschlechtlich“ in 186 Fällen. Jeder Begriff zählt je Beitrag höchstens einmal. Da ein Beitrag mehrere Begriffe enthalten kann, ist die Summe größer als die Zahl der Beiträge. Hinzu kommen 57 Videos, davon eines bei tagesschau.de, 33 bei WELT und 23 bei ZDFheute.
 
 ### 3. Wie unterscheiden sich die beiden Gruppen?
 
@@ -50,7 +50,7 @@ In 494 von 188.354 Textbeiträgen steht einer der Begriffe in der Überschrift o
 | ZDFheute | 10 | 0,36 | 47 | 1,68 |
 | **Gesamt** | **128** | **0,68** | **494** | **2,62** |
 
-Auf einen Textbeitrag zu ADHS, Autismus oder Neurodiversität kommen 3,9 Textbeiträge zu LGBTQ+. Am größten ist der Unterschied bei tagesschau.de mit 4 gegenüber 42 Beiträgen, am kleinsten beim SPIEGEL mit 58 gegenüber 203 Beiträgen.
+Auf einen Textbeitrag zu ADHS, Autismus oder Neurodiversität kommen 3,9 Textbeiträge zu LGBTQ+. Dieses Verhältnis ist bei tagesschau.de am höchsten: Dort kommen auf einen Beitrag 10,5 Beiträge zu LGBTQ+ (4 gegenüber 42). Am niedrigsten ist es beim SPIEGEL mit 3,5 (58 gegenüber 203).
 
 ![Beiträge je 1.000 Textbeiträge nach Quelle, beide Gruppen](images/anteil_je_quelle_de.png)
 
@@ -58,21 +58,21 @@ Auf einen Textbeitrag zu ADHS, Autismus oder Neurodiversität kommen 3,9 Textbei
 
 ### 4. Wird „zu viel“ berichtet?
 
-Häufig wird behauptet, LGBTQ+-Themen erhielten in den Medien übermäßig viel Aufmerksamkeit. Für die Überschriften der vier untersuchten Nachrichtenseiten stützen die Zahlen diese Behauptung nicht. In 494 von 188.354 Textbeiträgen, also in 0,26 Prozent, wird die Gruppe in der Überschrift oder in der Dachzeile genannt. Dem steht gegenüber, dass sich rund 12 Prozent der Menschen in Deutschland selbst als LGBT+ bezeichnen (Ipsos, 2024 und 2025). Bei ADHS, Autismus und Neurodiversität liegt der Anteil der Beiträge bei 0,07 Prozent.
+Häufig wird behauptet, LGBTQ+-Themen erhielten in den Medien übermäßig viel Aufmerksamkeit. Die Zahlen aus den Überschriften der vier untersuchten Nachrichtenseiten stützen diese Behauptung nicht: In 494 von 188.354 Textbeiträgen, also in 0,26 Prozent, wird die Gruppe in der Überschrift oder in der Dachzeile genannt. Zum Vergleich: In der Ipsos-Befragung bezeichneten sich 12 Prozent der Befragten zwischen 16 und 74 Jahren in Deutschland selbst als LGBT+ (2024 und 2025). Bei ADHS, Autismus und Neurodiversität liegt der Anteil der Beiträge bei 0,07 Prozent.
 
-Beide Themen kommen demnach in deutlich weniger als einem Prozent aller Beiträge vor. Diese Gegenüberstellung dient der Einordnung und ist nicht als Sollwert zu verstehen. Ein fester Zusammenhang zwischen der Größe einer Gruppe und dem Umfang der Berichterstattung wird nicht unterstellt.
+Beide Themen kommen demnach in deutlich weniger als einem Prozent aller Textbeiträge vor. Die 12 Prozent sind dabei kein Sollwert: Es wird nicht behauptet, dass 12 Prozent der Beiträge von LGBTQ+ handeln müssten. Der Vergleich zeigt nur die Größenordnung.
 
 ### 5. Wie verhält sich die Berichterstattung zur Größe der Gruppe?
 
-Die Kennzahl teilt die Zahl der Beiträge je 1.000 Textbeiträge durch den Anteil der Gruppe an der Bevölkerung in Prozent.
+Die Kennzahl setzt die Zahl der Beiträge ins Verhältnis zur Größe der Gruppe. Dazu wird die Zahl der Beiträge je 1.000 Textbeiträge durch den Anteil der Gruppe an der Bevölkerung in Prozent geteilt. Ein Beispiel: Auf Autismus entfallen 0,31 Beiträge je 1.000 Textbeiträge; geteilt durch den Bevölkerungsanteil von 0,90 Prozent ergibt das 0,34. Je höher der Wert ist, desto mehr wird im Verhältnis zur Größe der Gruppe berichtet. Für Neurodiversität als Sammelbegriff gibt es keinen Bevölkerungsanteil, deshalb steht sie nicht in der Tabelle.
 
 | Gruppe | Anteil an der Bevölkerung | Textbeiträge | Je 1.000 | Je Prozentpunkt Bevölkerungsanteil |
 |---|---:|---:|---:|---:|
 | Autismus | 0,90 % (Westeuropa, Schätzung) | 58 | 0,31 | 0,34 |
 | ADHS | 2,58 % (Erwachsene weltweit, Schätzung) | 69 | 0,37 | 0,14 |
-| LGBTQ+ | 12 % (Deutschland, Selbstauskunft) | 494 | 2,62 | 0,22 |
+| LGBTQ+ | 12 % (Deutschland, 16–74 Jahre, Selbstauskunft) | 494 | 2,62 | 0,22 |
 
-Gemessen an der Größe der Gruppe wird über Autismus nicht seltener berichtet als über LGBTQ+, über ADHS dagegen seltener. Die Bevölkerungsanteile stammen allerdings aus unterschiedlichen Arten von Quellen, nämlich aus epidemiologischen Schätzungen und aus einer Befragung, und die Gruppen können sich überschneiden. Die Kennzahl ist deshalb nur als grober Anhaltspunkt zu verstehen.
+Gemessen an der Größe der Gruppe wird über Autismus häufiger berichtet als über LGBTQ+ (0,34 gegenüber 0,22) und über ADHS seltener (0,14). Die Bevölkerungsanteile stammen allerdings aus unterschiedlichen Arten von Quellen, nämlich aus epidemiologischen Schätzungen und aus einer Befragung von 16- bis 74-Jährigen. Der Wert für ADHS bezieht sich auf Erwachsene, und die Gruppen können sich überschneiden. Die Kennzahl ist deshalb nur als grober Anhaltspunkt zu verstehen.
 
 ![Berichterstattung im Verhältnis zur Gruppengröße](images/gruppengroesse_de.png)
 
@@ -101,7 +101,7 @@ Für ADHS, Autismus und Neurodiversität wurden die folgenden Begriffe gezählt:
 
 Für LGBTQ+ wurden die folgenden Begriffe gezählt: queer; LGBT und LSBT in allen Schreibweisen; schwul, lesbisch, homosexuell und bisexuell; trans als eigenes Wort sowie transgender, Transfrau, Transmann, transsexuell, transident, transfeindlich und vergleichbare Formen; nichtbinär und non-binär; intergeschlechtlich und intersexuell. Ereignisse und Symbole, die die Gruppe nicht benennen, wurden nicht gezählt. Dazu gehören der Christopher Street Day, Pride und die Regenbogenflagge.
 
-Dieses Repository enthält ausschließlich Zahlen. Die Überschriften, die Listen der Beiträge und die zwischengespeicherten Archive der Websites werden nicht veröffentlicht.
+Die veröffentlichten Datendateien enthalten ausschließlich Monatszahlen. Die Überschriften, die Listen der Beiträge und die zwischengespeicherten Archive der Websites werden nicht veröffentlicht.
 
 ## Projektstruktur
 
@@ -109,6 +109,7 @@ Dieses Repository enthält ausschließlich Zahlen. Die Überschriften, die Liste
 ├── neurodiv_websites.py          erfasst und zählt die Beiträge
 ├── dashboard.py                  Streamlit-Dashboard (Deutsch / Englisch)
 ├── seiten_pruefen.py             Hilfsskript vom Projektbeginn: prüft den Aufbau der Websites
+├── requirements.txt              Pakete für das Dashboard
 ├── .streamlit/config.toml        Farben des Dashboards
 ├── data/raw/
 │   ├── monatszahlen.csv          Zahlen je Quelle und Monat: ADHS, Autismus, Neurodiversität

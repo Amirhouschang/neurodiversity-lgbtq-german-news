@@ -14,7 +14,7 @@ The dashboard is built with Streamlit and is available in German and English. Th
 
 ## Questions and findings
 
-All figures refer to text items in which a term appears in the headline or in the kicker.
+Unless stated otherwise, all figures refer to text items in which a term appears in the headline or in the kicker.
 
 ### 1. How often do the four websites report on ADHD, autism and neurodiversity?
 
@@ -26,7 +26,7 @@ All figures refer to text items in which a term appears in the headline or in th
 | ZDFheute | 27,969 | 10 | 0.36 |
 | **Total** | **188,354** | **128** | **0.68** |
 
-In 128 of 188,354 text items, one of the terms appears in the headline or in the kicker. This corresponds to 0.07 percent, or an average of 5.6 items per month across all four websites. ADHD accounts for 69 items, autism for 58 and neurodiversity for 11. The term "Asperger" is counted under autism and occurs only once itself. In addition there are 11 videos, one at tagesschau.de, four at WELT and six at ZDFheute.
+In 128 of 188,354 text items, one of the terms appears in the headline or in the kicker. This corresponds to 0.07 percent, or an average of 5.6 items per month across all four websites. ADHD accounts for 69 items, autism for 58 and neurodiversity for 11. As an item can contain several terms, the sum of these three figures is larger than the number of items. The term "Asperger" is counted under autism; the term itself appears in only one item. In addition there are 11 videos, one at tagesschau.de, four at WELT and six at ZDFheute.
 
 ### 2. How often do the four websites report on LGBTQ+?
 
@@ -38,7 +38,7 @@ In 128 of 188,354 text items, one of the terms appears in the headline or in the
 | ZDFheute | 27,969 | 47 | 1.68 |
 | **Total** | **188,354** | **494** | **2.62** |
 
-In 494 of 188,354 text items, one of the terms appears in the headline or in the kicker. This corresponds to 0.26 percent, or an average of 21.5 items per month across all four websites. The terms "queer" and "LGBTQ+" occur 209 times, the terms for gay, lesbian, homosexual and bisexual 132 times, and the terms for trans, non-binary and intersex 186 times. As an item can contain several terms, the sum is larger than the number of items. In addition there are 57 videos, one at tagesschau.de, 33 at WELT and 23 at ZDFheute.
+In 494 of 188,354 text items, one of the terms appears in the headline or in the kicker. This corresponds to 0.26 percent, or an average of 21.5 items per month across all four websites. The terms "queer" and "LGBTQ+" appear in the headline or in the kicker in 209 cases, the terms for gay, lesbian, homosexual and bisexual in 132 cases, and the terms for trans, non-binary and intersex in 186 cases. Each term is counted at most once per item. As an item can contain several terms, the sum is larger than the number of items. In addition there are 57 videos, one at tagesschau.de, 33 at WELT and 23 at ZDFheute.
 
 ### 3. How do the two groups compare?
 
@@ -50,7 +50,7 @@ In 494 of 188,354 text items, one of the terms appears in the headline or in the
 | ZDFheute | 10 | 0.36 | 47 | 1.68 |
 | **Total** | **128** | **0.68** | **494** | **2.62** |
 
-For every text item on ADHD, autism or neurodiversity there are 3.9 text items on LGBTQ+. The difference is largest at tagesschau.de, with 4 items compared with 42, and smallest at SPIEGEL, with 58 compared with 203.
+For every text item on ADHD, autism or neurodiversity there are 3.9 text items on LGBTQ+. This ratio is highest at tagesschau.de, where there are 10.5 items on LGBTQ+ for every item on ADHD, autism or neurodiversity (4 compared with 42). It is lowest at SPIEGEL, at 3.5 (58 compared with 203).
 
 ![Items per 1,000 text items by source, both groups](images/anteil_je_quelle_en.png)
 
@@ -58,21 +58,21 @@ For every text item on ADHD, autism or neurodiversity there are 3.9 text items o
 
 ### 4. Is there "too much" coverage?
 
-It is often claimed that LGBTQ+ topics receive excessive attention in the media. For the headlines of the four news websites examined, the figures do not support this claim. The group is named in the headline or in the kicker of 494 of 188,354 text items, which is 0.26 percent. By contrast, about 12 percent of people in Germany describe themselves as LGBT+ (Ipsos, 2024 and 2025). For ADHD, autism and neurodiversity, the share of items is 0.07 percent.
+It is often claimed that LGBTQ+ topics receive excessive attention in the media. The figures from the headlines of the four news websites examined do not support this claim: the group is named in the headline or in the kicker of 494 of 188,354 text items, which is 0.26 percent. For comparison, in the Ipsos survey 12 percent of respondents aged 16 to 74 in Germany described themselves as LGBT+ (2024 and 2025). For ADHD, autism and neurodiversity, the share of items is 0.07 percent.
 
-Both topics therefore appear in well under one percent of all items. This comparison provides context and is not to be understood as a target value. No fixed relationship between the size of a group and the volume of coverage is assumed.
+Both topics therefore appear in well under one percent of all text items. The 12 percent is not a target value: it is not claimed that 12 percent of items ought to deal with LGBTQ+. The comparison only shows the order of magnitude.
 
 ### 5. How does coverage relate to the size of the group?
 
-The indicator divides the number of items per 1,000 text items by the group's share of the population in percent.
+The indicator relates the number of items to the size of the group. For this purpose, the number of items per 1,000 text items is divided by the group's share of the population in percent. An example: autism accounts for 0.31 items per 1,000 text items; divided by the population share of 0.90 percent, this gives 0.34. The higher the value, the more coverage there is in relation to the size of the group. No population share exists for neurodiversity as an umbrella term, which is why it is not included in the table.
 
 | Group | Share of the population | Text items | Per 1,000 | Per percentage point of population share |
 |---|---:|---:|---:|---:|
 | Autism | 0.90% (Western Europe, estimate) | 58 | 0.31 | 0.34 |
 | ADHD | 2.58% (adults worldwide, estimate) | 69 | 0.37 | 0.14 |
-| LGBTQ+ | 12% (Germany, self-reported) | 494 | 2.62 | 0.22 |
+| LGBTQ+ | 12% (Germany, ages 16–74, self-reported) | 494 | 2.62 | 0.22 |
 
-Measured against the size of the group, autism is not covered less often than LGBTQ+, whereas ADHD is. However, the population shares come from different kinds of sources, namely epidemiological estimates and a survey, and the groups may overlap. The indicator should therefore be understood as a rough guide only.
+Measured against the size of the group, autism is covered more often than LGBTQ+ (0.34 compared with 0.22) and ADHD less often (0.14). However, the population shares come from different kinds of sources, namely epidemiological estimates and a survey of people aged 16 to 74. The value for ADHD refers to adults, and the groups may overlap. The indicator should therefore be understood as a rough guide only.
 
 ![Coverage in relation to group size](images/gruppengroesse_en.png)
 
@@ -101,7 +101,7 @@ For ADHD, autism and neurodiversity, the following German terms were counted: AD
 
 For LGBTQ+, the following German terms were counted: queer; LGBT and LSBT in all spellings; schwul, lesbisch, homosexuell and bisexuell; trans as a separate word as well as transgender, Transfrau, Transmann, transsexuell, transident, transfeindlich and comparable forms; nichtbinär and non-binär; intergeschlechtlich and intersexuell. Events and symbols that do not name the group were not counted. These include Christopher Street Day, Pride and the rainbow flag.
 
-This repository contains only figures. The headlines, the lists of items and the cached archives of the websites are not published.
+The published data files contain monthly figures only. The headlines, the lists of items and the cached archives of the websites are not published.
 
 ## Project structure
 
@@ -109,6 +109,7 @@ This repository contains only figures. The headlines, the lists of items and the
 ├── neurodiv_websites.py          collects and counts the items
 ├── dashboard.py                  Streamlit dashboard (German / English)
 ├── seiten_pruefen.py             helper script from the start of the project: checks how the websites are structured
+├── requirements.txt              packages for the dashboard
 ├── .streamlit/config.toml        colours of the dashboard
 ├── data/raw/
 │   ├── monatszahlen.csv          figures per source and month: ADHD, autism, neurodiversity
