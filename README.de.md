@@ -10,7 +10,7 @@ Ausgewertet wurden die Websites tagesschau.de, SPIEGEL, WELT und ZDFheute im Zei
 
 **[Zum Dashboard](https://neurodiversity-lgbtq-german-news.streamlit.app/)**
 
-Das Dashboard ist mit Streamlit gebaut und steht auf Deutsch und Englisch zur Verfügung. Die erste Seite zeigt die Auswertung zu ADHS, Autismus und Neurodiversität, die zweite die Auswertung zu LGBTQ+, die dritte den Vergleich der beiden Gruppen. Quellen und Zeitraum lassen sich auf allen Seiten eingrenzen. Wie es sich auf dem eigenen Rechner starten lässt, steht im Abschnitt [Ausführen](#ausführen).
+Das Dashboard ist mit Streamlit gebaut und steht auf Deutsch und Englisch zur Verfügung. Die erste Seite zeigt die Auswertung zu ADHS, Autismus und Neurodiversität, die zweite die Auswertung zu LGBTQ+, die dritte den Vergleich der beiden Gruppen. Die vierte Seite zeigt, aus welchem Anlass über LGBTQ+ berichtet wird; Vorgehen und Ergebnisse dieser Auswertung stehen in einem [eigenen Dokument](EINORDNUNG.de.md). Quellen und Zeitraum lassen sich auf allen Seiten eingrenzen. Wie es sich auf dem eigenen Rechner starten lässt, steht im Abschnitt [Ausführen](#ausführen).
 
 ## Fragen und Ergebnisse
 
@@ -108,13 +108,17 @@ Die veröffentlichten Datendateien enthalten ausschließlich Monatszahlen. Die �
 ```
 ├── neurodiv_websites.py          erfasst und zählt die Beiträge
 ├── dashboard.py                  Streamlit-Dashboard (Deutsch / Englisch)
+├── beitraege_einordnen.py        ordnet die LGBTQ+-Beiträge nach Anlass ein (Sprachmodell von OpenAI)
+├── beitraege_einordnen_lokal.py  dieselbe Einordnung mit einem lokalen Modell (Ollama)
 ├── seiten_pruefen.py             Hilfsskript vom Projektbeginn: prüft den Aufbau der Websites
 ├── requirements.txt              Pakete für das Dashboard
 ├── .streamlit/config.toml        Farben des Dashboards
 ├── data/raw/
 │   ├── monatszahlen.csv          Zahlen je Quelle und Monat: ADHS, Autismus, Neurodiversität
-│   └── monatszahlen_lgbtq.csv    Zahlen je Quelle und Monat: LGBTQ+
+│   ├── monatszahlen_lgbtq.csv    Zahlen je Quelle und Monat: LGBTQ+
+│   └── einordnung_lgbtq_*.csv    Zahlen zur Einordnung nach Anlass (drei Dateien)
 ├── images/                       Diagramme aus dem Dashboard für das README
+├── EINORDNUNG.md / EINORDNUNG.de.md   Auswertung: Anlass der Berichterstattung über LGBTQ+
 ├── README.md
 └── README.de.md
 ```

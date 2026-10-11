@@ -22,6 +22,20 @@ import streamlit as st
 ROH = Path(__file__).resolve().parent / "data" / "raw"
 DATEI = ROH / "monatszahlen.csv"
 DATEI_LGBTQ = ROH / "monatszahlen_lgbtq.csv"
+DATEI_EINORDNUNG = ROH / "einordnung_lgbtq_vergleich.csv"
+
+# Einordnung nach Anlass: Kategorien in fester Reihenfolge, mit fester Farbe
+KATEGORIEN = ["gewalt", "staat", "recht", "politik", "gesellschaft", "sonstiges"]
+FARBEN_KATEGORIE = {
+    "gewalt": "#b3261e",        # Rot
+    "staat": "#e08a1e",         # Orange
+    "recht": "#3a93d6",         # Blau
+    "politik": "#6a55c4",       # Violett
+    "gesellschaft": "#2f8f5b",  # Gruen
+    "sonstiges": "#9a9892",     # Grau
+}
+MODELLE = {"cloud": "gpt-5.6-sol", "lokal": "mistral-small3.1"}
+FARBEN_MODELL = {"cloud": "#28509c", "lokal": "#cf5d8e"}
 
 THEMEN = ["ADHS", "Autismus", "Asperger", "Neurodiversitaet"]
 QUELLEN_NAMEN = {
@@ -462,7 +476,63 @@ VERGLEICH_GRUPPEN = [
 ]
 
 TEXTE["de"].update({
-    "seiten": ["ADHS, Autismus, Neurodiversität", "LGBTQ+", "Vergleich"],
+    "seiten": ["ADHS, Autismus, Neurodiversität", "LGBTQ+", "Vergleich", "Anlass (LGBTQ+)"],
+    "e_titel": "Aus welchem Anlass wird über LGBTQ+ berichtet?",
+    "e_text": "Diese Seite zeigt, aus welchem Anlass die vier Nachrichtenseiten über queere "
+              "Menschen berichten. Jeder Beitrag wurde von zwei Sprachmodellen unabhängig "
+              "voneinander genau einer von sechs Kategorien zugeordnet. Grundlage sind allein "
+              "Überschrift und Dachzeile, bei tagesschau.de auch der Kurztext.",
+    "e_fehlt": "Die Datei {pfad} wurde nicht gefunden. Sie entsteht, wenn beitraege_einordnen.py "
+               "und beitraege_einordnen_lokal.py ausgeführt wurden.",
+    "e_kategorien": {
+        "gewalt": "Gewalt und Straftaten",
+        "staat": "Staatliche Maßnahmen gegen die Gruppe",
+        "recht": "Recht und Gleichstellung",
+        "politik": "Politik und Debatte",
+        "gesellschaft": "Gesellschaft und Kultur",
+        "sonstiges": "Sonstiges",
+    },
+    "e_art": "Art der Beiträge",
+    "e_k_anzahl": "Eingeordnete Beiträge",
+    "e_k_gewalt_staat": "Gewalt und staatliche Maßnahmen",
+    "e_k_groesste": "Anteil der größten Kategorie",
+    "e_groesste_satz": "Die größte Kategorie ist {kategorie}.",
+    "e_k_gleich": "Gleich eingeordnet von beiden Modellen",
+    "e_haupt": "Die Kennzahlen und die beiden folgenden Diagramme beruhen auf der Einordnung durch {modell}.",
+    "e_h_anteile": "Anteil der Kategorien",
+    "e_h_quelle": "Kategorien je Quelle",
+    "e_quelle_text": "Jeder Balken zeigt, wie sich die Beiträge einer Quelle auf die sechs "
+                     "Kategorien verteilen. Bei wenigen Beiträgen verändern einzelne Beiträge "
+                     "den Anteil spürbar.",
+    "e_h_modelle": "Vergleich der beiden Modelle",
+    "e_modelle_text": "Beide Modelle erhielten dieselbe Anweisung und dieselben Kategorien. "
+                      "{cloud} ist ein großes Modell von OpenAI, {lokal} ein kleineres Modell, "
+                      "das auf dem eigenen Rechner lief. Sie haben {gleich} von {alle} Beiträgen "
+                      "derselben Kategorie zugeordnet, das sind {anteil} Prozent.",
+    "e_h_kreuz": "Wo die Modelle voneinander abweichen",
+    "e_kreuz_text": "Die Tabelle zeigt in den Zeilen die Einordnung durch {cloud} und in den "
+                    "Spalten die Einordnung durch {lokal}. Auf der Diagonale stehen die Beiträge, "
+                    "die beide Modelle gleich eingeordnet haben.",
+    "e_a_anteil": "Anteil in Prozent",
+    "e_kategorie": "Kategorie",
+    "e_modell": "Modell",
+    "e_beitraege": "Beiträge",
+    "e_zeile": "{cloud} ↓ / {lokal} →",
+    "e_methode_text": """
+- **Grundlage:** Dieselben Beiträge wie auf der Seite LGBTQ+, also alle Beiträge, in denen
+  ein Begriff in Überschrift oder Dachzeile vorkommt.
+- **Einordnung:** Die Zuordnung stammt von Sprachmodellen und nicht von geschulten Personen.
+  Die Modelle sahen nur Dachzeile und Überschrift, bei tagesschau.de auch den Kurztext.
+- **Eine Kategorie je Beitrag:** Passt ein Beitrag in mehrere Kategorien, gilt die erste in
+  dieser Reihenfolge: Gewalt, staatliche Maßnahmen, Recht, Politik, Gesellschaft, Sonstiges.
+- **Gewalt:** Gezählt werden nur Taten gegen queere Menschen. Beiträge, in denen eine queere
+  Person als Täterin oder Täter genannt wird, sollen unter Sonstiges stehen. Abwertende
+  Äußerungen, die keine Straftat sind, zählen nicht zu Gewalt.
+- **Staatliche Maßnahmen:** Dazu zählt auch der Ausschluss durch Verbände, etwa im Sport.
+- **Übereinstimmung:** Wo die beiden Modelle voneinander abweichen, ist die Einordnung
+  unsicher. Das betrifft vor allem die Grenze zwischen Politik und Gesellschaft.
+- **Stand:** Die Einordnung wurde am 11. Oktober 2026 vorgenommen.
+""",
     # Ueberschrift und Einleitung je Seite, direkt unter der Seitenauswahl
     "seiten_titel": ["ADHS, Autismus und Neurodiversität", "LGBTQ+",
                      "Vergleich der beiden Gruppen"],
@@ -572,7 +642,63 @@ TEXTE["de"]["lgbtq"] = {
 }
 
 TEXTE["en"].update({
-    "seiten": ["ADHD, autism, neurodiversity", "LGBTQ+", "Comparison"],
+    "seiten": ["ADHD, autism, neurodiversity", "LGBTQ+", "Comparison", "Occasion (LGBTQ+)"],
+    "e_titel": "What prompts coverage of LGBTQ+?",
+    "e_text": "This page shows what prompts the four news websites to report on queer people. "
+              "Two language models independently assigned every item to exactly one of six "
+              "categories. The only basis is the headline and the kicker, and for "
+              "tagesschau.de also the teaser text.",
+    "e_fehlt": "The file {pfad} was not found. It is created once beitraege_einordnen.py and "
+               "beitraege_einordnen_lokal.py have been run.",
+    "e_kategorien": {
+        "gewalt": "Violence and crime",
+        "staat": "State measures against the group",
+        "recht": "Law and equality",
+        "politik": "Politics and debate",
+        "gesellschaft": "Society and culture",
+        "sonstiges": "Other",
+    },
+    "e_art": "Type of items",
+    "e_k_anzahl": "Classified items",
+    "e_k_gewalt_staat": "Violence and state measures",
+    "e_k_groesste": "Share of the largest category",
+    "e_groesste_satz": "The largest category is {kategorie}.",
+    "e_k_gleich": "Classified identically by both models",
+    "e_haupt": "The key figures and the two following charts are based on the classification by {modell}.",
+    "e_h_anteile": "Share of the categories",
+    "e_h_quelle": "Categories by source",
+    "e_quelle_text": "Each bar shows how the items of one source are distributed across the six "
+                     "categories. Where there are few items, single items change the share "
+                     "noticeably.",
+    "e_h_modelle": "Comparison of the two models",
+    "e_modelle_text": "Both models received the same instruction and the same categories. "
+                      "{cloud} is a large model by OpenAI, {lokal} a smaller model that ran on "
+                      "my own computer. They assigned {gleich} of {alle} items to the same "
+                      "category, which is {anteil} percent.",
+    "e_h_kreuz": "Where the models differ",
+    "e_kreuz_text": "The rows of the table show the classification by {cloud}, the columns the "
+                    "classification by {lokal}. The diagonal contains the items that both "
+                    "models classified identically.",
+    "e_a_anteil": "Share in percent",
+    "e_kategorie": "Category",
+    "e_modell": "Model",
+    "e_beitraege": "Items",
+    "e_zeile": "{cloud} ↓ / {lokal} →",
+    "e_methode_text": """
+- **Basis:** The same items as on the LGBTQ+ page, that is all items in which a term appears
+  in the headline or in the kicker.
+- **Classification:** The assignment was made by language models and not by trained coders.
+  The models saw only the kicker and the headline, and for tagesschau.de also the teaser text.
+- **One category per item:** If an item fits several categories, the first one in this order
+  applies: violence, state measures, law, politics, society, other.
+- **Violence:** Only acts against queer people are counted. Items in which a queer person is
+  named as the perpetrator are meant to be listed under other. Derogatory remarks that are
+  not a criminal offence are not counted as violence.
+- **State measures:** These also include exclusion by associations, for example in sport.
+- **Agreement:** Where the two models differ, the classification is uncertain. This mainly
+  concerns the boundary between politics and society.
+- **As of:** The classification was carried out on 11 October 2026.
+""",
     "seiten_titel": ["ADHD, autism and neurodiversity", "LGBTQ+",
                      "Comparison of the two groups"],
     "seiten_text": [
@@ -1445,6 +1571,169 @@ def vergleichsseite():
         st.dataframe(pd.DataFrame(je_quelle_gruppe), hide_index=True, width="stretch")
 
 
+# ======================================================= Einordnung (Anlass)
+
+
+@st.cache_data
+def einordnung_laden(pfad, geaendert):
+    df = pd.read_csv(pfad, encoding="utf-8-sig")
+    df["quelle"] = df["quelle"].map(QUELLEN_NAMEN).fillna(df["quelle"])
+    return df
+
+
+def einordnungsseite():
+    """Seite 4: Anlass der Berichterstattung ueber LGBTQ+, zwei Modelle."""
+    alle = gefiltert(einordnung_laden(DATEI_EINORDNUNG, DATEI_EINORDNUNG.stat().st_mtime))
+    art = st.radio(
+        T["e_art"], ["Text", "Video"], horizontal=True,
+        format_func={"Text": T["art_text"], "Video": T["art_video"]}.get,
+    )
+    tabelle = alle[alle["art"] == art]
+    gesamt = int(tabelle["anzahl"].sum())
+    if gesamt == 0:
+        st.info(T["leer"])
+        return
+
+    namen = T["e_kategorien"]
+    reihenfolge = [namen[k] for k in KATEGORIEN]
+    kategorieskala = alt.Scale(domain=reihenfolge,
+                               range=[FARBEN_KATEGORIE[k] for k in KATEGORIEN])
+    je = {m: tabelle.groupby("kategorie_" + m)["anzahl"].sum().reindex(KATEGORIEN).fillna(0)
+          for m in MODELLE}
+    gleich = int(tabelle.loc[tabelle["kategorie_cloud"] == tabelle["kategorie_lokal"],
+                             "anzahl"].sum())
+    haupt = je["cloud"]
+    groesste = haupt.idxmax()
+
+    # --------------------------------------------------------- Kennzahlen
+
+    k1, k2, k3, k4 = st.columns(4)
+    k1.metric(T["e_k_anzahl"], zahl(gesamt))
+    k2.metric(T["e_k_gewalt_staat"],
+              zahl(100 * (haupt["gewalt"] + haupt["staat"]) / gesamt, 1) + " %")
+    k3.metric(T["e_k_groesste"], zahl(100 * haupt[groesste] / gesamt, 1) + " %")
+    k4.metric(T["e_k_gleich"], zahl(100 * gleich / gesamt, 1) + " %")
+    st.caption(T["e_groesste_satz"].format(kategorie=namen[groesste]) + " "
+               + T["e_haupt"].format(modell=MODELLE["cloud"]))
+
+    # ------------------------------------------------- Anteil der Kategorien
+
+    st.subheader(T["e_h_anteile"])
+    anteile = pd.DataFrame({
+        "kategorie": reihenfolge,
+        "anzahl": [int(haupt[k]) for k in KATEGORIEN],
+    })
+    anteile["anteil"] = 100 * anteile["anzahl"] / gesamt
+    anteile["text"] = anteile.apply(
+        lambda z: f"{zahl(z['anteil'], 1)} % ({zahl(z['anzahl'])})", axis=1)
+    balken = (
+        alt.Chart(anteile)
+        .mark_bar(cornerRadiusEnd=4, size=26)
+        .encode(
+            y=alt.Y("kategorie:N", title=None, sort=reihenfolge,
+                    axis=alt.Axis(labelLimit=320)),
+            x=alt.X("anteil:Q", axis=achse(T["e_a_anteil"]),
+                    scale=alt.Scale(domainMax=float(anteile["anteil"].max()) * 1.25)),
+            color=alt.Color("kategorie:N", scale=kategorieskala, legend=None),
+            tooltip=[alt.Tooltip("kategorie:N", title=T["e_kategorie"]),
+                     alt.Tooltip("anzahl:Q", title=T["e_beitraege"]),
+                     alt.Tooltip("text:N", title=T["anteil"])],
+        )
+    )
+    werte = balken.mark_text(align="left", dx=6).encode(text="text:N", color=alt.value(GRAU))
+    st.altair_chart((balken + werte).properties(height=alt.Step(40)), width="stretch")
+
+    # --------------------------------------------------- Kategorien je Quelle
+
+    st.subheader(T["e_h_quelle"])
+    st.caption(T["e_quelle_text"])
+    reihen = [q for q in FARBEN_QUELLE if q in set(tabelle["quelle"])]
+    je_quelle = (
+        tabelle.groupby(["quelle", "kategorie_cloud"])["anzahl"].sum().reset_index()
+        .rename(columns={"kategorie_cloud": "schluessel"})
+    )
+    summe_quelle = je_quelle.groupby("quelle")["anzahl"].transform("sum")
+    je_quelle["anteil"] = 100 * je_quelle["anzahl"] / summe_quelle
+    je_quelle["kategorie"] = je_quelle["schluessel"].map(namen)
+    je_quelle["reihe"] = je_quelle["schluessel"].map(KATEGORIEN.index)
+    je_quelle["text"] = je_quelle["anteil"].map(lambda w: zahl(w, 1) + " %")
+    je_quelle["achse"] = je_quelle["quelle"] + " (" + summe_quelle.map(zahl) + ")"
+    st.altair_chart(
+        alt.Chart(je_quelle)
+        .mark_bar()
+        .encode(
+            y=alt.Y("achse:N", title=None,
+                    sort=[a for q in reihen
+                          for a in je_quelle.loc[je_quelle["quelle"] == q, "achse"].unique()],
+                    axis=alt.Axis(labelLimit=220)),
+            x=alt.X("anteil:Q", stack="zero", axis=achse(T["e_a_anteil"]),
+                    scale=alt.Scale(domain=[0, 100])),
+            color=alt.Color("kategorie:N", scale=kategorieskala,
+                            legend=alt.Legend(title=None, orient="bottom", columns=3,
+                                              labelLimit=320)),
+            order=alt.Order("reihe:Q"),
+            tooltip=[alt.Tooltip("quelle:N", title=T["quelle"]),
+                     alt.Tooltip("kategorie:N", title=T["e_kategorie"]),
+                     alt.Tooltip("anzahl:Q", title=T["e_beitraege"]),
+                     alt.Tooltip("text:N", title=T["anteil"])],
+        )
+        .properties(height=alt.Step(44)),
+        width="stretch",
+    )
+
+    # ------------------------------------------------- Vergleich der Modelle
+
+    st.subheader(T["e_h_modelle"])
+    st.caption(T["e_modelle_text"].format(
+        cloud=MODELLE["cloud"], lokal=MODELLE["lokal"], gleich=zahl(gleich),
+        alle=zahl(gesamt), anteil=zahl(100 * gleich / gesamt, 1),
+    ))
+    zeilen = []
+    for m, modell in MODELLE.items():
+        for k in KATEGORIEN:
+            zeilen.append({"modell": modell, "kategorie": namen[k], "anzahl": int(je[m][k]),
+                           "anteil": 100 * je[m][k] / gesamt})
+    modelle = pd.DataFrame(zeilen)
+    modelle["text"] = modelle["anteil"].map(lambda w: zahl(w, 1) + " %")
+    modellskala = alt.Scale(domain=list(MODELLE.values()),
+                            range=[FARBEN_MODELL[m] for m in MODELLE])
+    balken = (
+        alt.Chart(modelle)
+        .mark_bar(cornerRadiusEnd=3)
+        .encode(
+            y=alt.Y("kategorie:N", title=None, sort=reihenfolge,
+                    axis=alt.Axis(labelLimit=320)),
+            yOffset=alt.YOffset("modell:N", sort=list(MODELLE.values())),
+            x=alt.X("anteil:Q", axis=achse(T["e_a_anteil"]),
+                    scale=alt.Scale(domainMax=float(modelle["anteil"].max()) * 1.15)),
+            color=alt.Color("modell:N", scale=modellskala,
+                            legend=alt.Legend(title=None, orient="bottom")),
+            tooltip=[alt.Tooltip("modell:N", title=T["e_modell"]),
+                     alt.Tooltip("kategorie:N", title=T["e_kategorie"]),
+                     alt.Tooltip("anzahl:Q", title=T["e_beitraege"]),
+                     alt.Tooltip("text:N", title=T["anteil"])],
+        )
+    )
+    werte = balken.mark_text(align="left", dx=5).encode(text="text:N", color=alt.value(GRAU))
+    st.altair_chart((balken + werte).properties(height=alt.Step(22)), width="stretch")
+
+    st.subheader(T["e_h_kreuz"])
+    st.caption(T["e_kreuz_text"].format(cloud=MODELLE["cloud"], lokal=MODELLE["lokal"]))
+    kreuz = (
+        tabelle.pivot_table(index="kategorie_cloud", columns="kategorie_lokal",
+                            values="anzahl", aggfunc="sum", fill_value=0)
+        .reindex(index=KATEGORIEN, columns=KATEGORIEN, fill_value=0).astype(int)
+    )
+    kreuz.index = [namen[k] for k in kreuz.index]
+    kreuz.columns = [namen[k] for k in kreuz.columns]
+    kreuz.insert(0, T["e_zeile"].format(cloud=MODELLE["cloud"], lokal=MODELLE["lokal"]),
+                 kreuz.index)
+    st.dataframe(kreuz, hide_index=True, width="stretch")
+
+    with st.expander(T["methode"]):
+        st.markdown(T["e_methode_text"])
+
+
 # ================================================================== Seiten
 
 # Seitenauswahl groesser und kraeftiger, damit sie auf den ersten Blick auffaellt
@@ -1467,7 +1756,7 @@ def seitenkopf(nummer):
     st.markdown(T["seiten_text"][nummer])
 
 
-seite_neuro, seite_lgbtq, seite_vergleich = st.tabs(T["seiten"])
+seite_neuro, seite_lgbtq, seite_vergleich, seite_einordnung = st.tabs(T["seiten"])
 
 with seite_neuro:
     seitenkopf(0)
@@ -1486,3 +1775,11 @@ with seite_vergleich:
         st.error(T["fehlt_lgbtq"].format(pfad=DATEI_LGBTQ))
     else:
         vergleichsseite()
+
+with seite_einordnung:
+    st.header(T["e_titel"])
+    st.markdown(T["e_text"])
+    if not DATEI_EINORDNUNG.exists():
+        st.error(T["e_fehlt"].format(pfad=DATEI_EINORDNUNG))
+    else:
+        einordnungsseite()
