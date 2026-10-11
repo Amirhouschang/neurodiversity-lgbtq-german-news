@@ -108,7 +108,7 @@ The published data files contain monthly figures only. The headlines, the lists 
 ```
 ├── neurodiv_websites.py          collects and counts the items
 ├── dashboard.py                  Streamlit dashboard (German / English)
-├── beitraege_einordnen.py        classifies the LGBTQ+ items by occasion (language model by OpenAI)
+├── beitraege_einordnen.py        classifies the LGBTQ+ items by reason for coverage (language model by OpenAI)
 ├── beitraege_einordnen_lokal.py  the same classification with a local model (Ollama)
 ├── seiten_pruefen.py             helper script from the start of the project: checks how the websites are structured
 ├── requirements.txt              packages for the dashboard
@@ -116,7 +116,7 @@ The published data files contain monthly figures only. The headlines, the lists 
 ├── data/raw/
 │   ├── monatszahlen.csv          figures per source and month: ADHD, autism, neurodiversity
 │   ├── monatszahlen_lgbtq.csv    figures per source and month: LGBTQ+
-│   └── einordnung_lgbtq_*.csv    figures on the classification by occasion (three files)
+│   └── einordnung_lgbtq_*.csv    figures on the reason for coverage (three files)
 ├── images/                       charts from the dashboard for the README
 ├── EINORDNUNG.md / EINORDNUNG.de.md   analysis: what prompts coverage of LGBTQ+
 ├── README.md

@@ -17,7 +17,7 @@ Two language models independently assigned every item to exactly one of six cate
 | Law and equality | court rulings, lawsuits, laws that extend or clarify rights, anti-discrimination |
 | Politics and debate | parties, elections, opinion pieces, disputes over symbols or terms, demonstrations without violence |
 | Society and culture | everyday life, portraits, coming out, sport, film, music, religion, history, festivals |
-| Other | animals or plants, plays on words, and items whose occasion cannot be identified from headline and kicker |
+| Other | animals or plants, plays on words, and items whose reason for coverage cannot be identified from headline and kicker |
 
 If an item fits several categories, the one listed first in the table applies. An item about a court ruling following an attack is therefore counted under violence and not under law.
 
@@ -31,7 +31,7 @@ The following figures are based on the classification by `gpt-5.6-sol`. The comp
 
 ### Text items
 
-| Occasion | Items | Share |
+| Reason for coverage | Items | Share |
 |---|---:|---:|
 | Society and culture | 157 | 31.8% |
 | Politics and debate | 108 | 21.9% |
@@ -41,7 +41,7 @@ The following figures are based on the classification by `gpt-5.6-sol`. The comp
 | Other | 9 | 1.8% |
 | **Total** | **494** | **100%** |
 
-Violence and state measures against the group together are the occasion for 170 of the 494 text items, which is 34.4 percent. About one item in three therefore goes back to an attack, a ban or a restriction. The largest single category, however, is society and culture at 31.8 percent. Coverage therefore does not consist mainly of reports on violence and bans, but these make up a considerable part of it.
+Violence and state measures against the group together are the reason for 170 of the 494 text items, which is 34.4 percent. About one item in three therefore goes back to an attack, a ban or a restriction. The largest single category, however, is society and culture at 31.8 percent. Coverage therefore does not consist mainly of reports on violence and bans, but these make up a considerable part of it.
 
 ### By source
 
@@ -66,7 +66,7 @@ According to this classification, almost every second item on the two public-ser
 
 ### Videos
 
-| Occasion | Videos | Share |
+| Reason for coverage | Videos | Share |
 |---|---:|---:|
 | State measures against the group | 16 | 28.1% |
 | Politics and debate | 13 | 22.8% |
@@ -82,7 +82,7 @@ Of the 57 videos, 25 fall under violence and state measures, which is 43.9 perce
 
 The two models assigned 391 of the 494 text items to the same category, which is 79.1 percent. For the videos it is 51 of 57, or 89.5 percent. Cohen's kappa, a measure of agreement that discounts matches occurring by chance, is 0.73 for the text items.
 
-| Occasion | gpt-5.6-sol | Share | mistral-small3.1 | Share |
+| Reason for coverage | gpt-5.6-sol | Share | mistral-small3.1 | Share |
 |---|---:|---:|---:|---:|
 | Violence and crime | 65 | 13.2% | 59 | 11.9% |
 | State measures against the group | 105 | 21.3% | 105 | 21.3% |
@@ -119,13 +119,13 @@ The sample is small. With 50 items, each single one corresponds to two percentag
 
 - The classification was made by language models and not by trained coders. Agreement between two models does not prove that their classification is correct. Only a sample of 50 items was checked by hand.
 - The models saw only the kicker and the headline, and for tagesschau.de also the teaser text. What the article is actually about may differ from this.
-- Every item receives exactly one category. Items with several occasions are simplified by the fixed order of the categories.
+- Every item receives exactly one category. Items with several reasons are simplified by the fixed order of the categories.
 - The category violence covers only acts against queer people. Items in which a queer person is named as the perpetrator are listed under other.
 - Derogatory remarks that are not a criminal offence are not counted as violence. Where such items belong instead is not clear-cut: `gpt-5.6-sol` lists a penalty for a homophobic remark in sport under society and culture, whereas I assign it to law and equality.
 - State measures also include exclusion by associations, for example in sport, although associations are not state bodies.
 - The categories were chosen by me. Other categories or a different order would produce different shares.
 - A language model does not necessarily return the same assignment for every item when the run is repeated.
-- The analysis covers LGBTQ+ only. No classification by occasion was carried out for ADHD, autism and neurodiversity.
+- The analysis covers LGBTQ+ only. No classification by reason for coverage was carried out for ADHD, autism and neurodiversity.
 
 ## Files
 

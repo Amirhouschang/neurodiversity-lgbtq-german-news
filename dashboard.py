@@ -642,7 +642,7 @@ TEXTE["de"]["lgbtq"] = {
 }
 
 TEXTE["en"].update({
-    "seiten": ["ADHD, autism, neurodiversity", "LGBTQ+", "Comparison", "Occasion (LGBTQ+)"],
+    "seiten": ["ADHD, autism, neurodiversity", "LGBTQ+", "Comparison", "Reason for coverage (LGBTQ+)"],
     "e_titel": "What prompts coverage of LGBTQ+?",
     "e_text": "This page shows what prompts the four news websites to report on queer people. "
               "Two language models independently assigned every item to exactly one of six "
